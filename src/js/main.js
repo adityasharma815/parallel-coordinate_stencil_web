@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import { setting } from "../js/setting";
 import { myServicee } from "../services/my-service";
 import _ from "underscore";
+import { viiolinplot } from "../js/violinChart";
 
 export function main() {
   let width, height;
@@ -539,21 +540,21 @@ export function main() {
   function initFunc(sampleS, serviceFullList_withExtra, allElementsObj) {
     debugger;
     // d3.viiolinplot = viiolinplot;
-    // violiin_chart = viiolinplot().graphicopt({
-    //   width: 160,
-    //   height: 25,
-    //   opt: { dataformated: true },
-    //   stroke: "white",
-    //   isStack: false,
-    //   midleTick: false,
-    //   tick: false,
-    //   showOutlier: false,
-    //   direction: "v",
-    //   margin: { top: 0, right: 0, bottom: 0, left: 0 },
-    //   middleAxis: { "stroke-width": 0 },
-    //   ticks: { "stroke-width": 0.5 },
-    //   tick: { visibile: false },
-    // });
+    violiin_chart = viiolinplot().graphicopt({
+      width: 160,
+      height: 25,
+      opt: { dataformated: true },
+      stroke: "white",
+      isStack: false,
+      midleTick: false,
+      tick: false,
+      showOutlier: false,
+      direction: "v",
+      margin: { top: 0, right: 0, bottom: 0, left: 0 },
+      middleAxis: { "stroke-width": 0 },
+      ticks: { "stroke-width": 0.5 },
+      tick: { visibile: false },
+    });
     serviceFullList_withExtraa = serviceFullList_withExtra;
     let allElem = myServicee.getCanvusElements();
     drawFiltertable(serviceFullList_withExtra);
@@ -562,9 +563,8 @@ export function main() {
     dimensions = [];
     timel;
     if (timel) timel.stop();
-    width = document.querySelector('layout-component').shadowRoot.querySelector('.main-right-panel').clientWidth ;
+    width = document.querySelector('layout-component').shadowRoot.querySelector('.main-right-panel').clientWidth - 10;
     height = document.querySelector('layout-component').shadowRoot.querySelector('.main-right-panel').clientHeight;
-    console.log("height ====> ", height)
     w = width - m[1] - m[3];
     h = height - m[0] - m[2];
     xscale = d3.scalePoint().range([0, w]).padding(0.3);

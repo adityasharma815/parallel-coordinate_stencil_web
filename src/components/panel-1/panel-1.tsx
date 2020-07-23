@@ -7,60 +7,48 @@ import {
   EventEmitter,
   Event,
 } from "@stencil/core";
-// import * as d3 from "d3";
-import { initial } from "../../utils/menu-main";
 
 
 @Component({
   tag: "left-panel",
-  styleUrl: "panel-1.css"
+  styleUrl: "panel-1.css",
+  shadow: true
 })
 export class Panel1 implements ComponentInterface {
-  @Prop() selectedData;
+  @Prop() selectedData; 
+  
 
   @Event() loadDataset: EventEmitter<any>;
   loadData() {
     this.loadDataset.emit({ loadDataset: true });
   }
-  @State() isSearchExpanded: boolean = false;
 
   @State() isSettingExpanded: boolean = false;
 
-  componentDidRender() {
-    initial();
+  renderTitle() {
+    return <div>Tooltio</div>;
   }
 
   render() {
     return (
       <div id="mySidenav" class="sidenavs">
-        {this.selectedData}
         <ul id="listvar" class="dropdown-content  s12"></ul>
         <div class="row s12">
           <ul id="leftpanel" class="collapsible">
-            <li class="searchPanel active">
+            <li class="searchPanel">
               <div class="collapsible-header search-wrapper focused">
                 <input
                   type="text"
                   id="search"
                   placeholder="Search host e.g compute-1-1"
                   style={{ color: "white" }}
-                  onClick={() =>
-                    (this.isSearchExpanded = !this.isSearchExpanded)
-                  }
                 />
                 <i class="material-icons" style={{ margin: "auto" }}>
                   search
                 </i>
               </div>
-              <div
-                class="collapsible-body"
-                style={{ display: this.isSearchExpanded ? "block" : "none" }}
-              >
-                <ul
-                  id="compute-list"
-                  class="collapsible"
-                  data-role="collapsible"
-                ></ul>
+              <div class="collapsible-body">
+                <ul id="compute-list"></ul>
               </div>
             </li>
             <li class="active">
@@ -85,10 +73,9 @@ export class Panel1 implements ComponentInterface {
                   </div>
                   <div
                     class="col s7 no-padding"
-                    title={this.selectedData.name}
+                    title="{{Dataset.currentDataset.name}}"
                   >
                     <span class="dataset-name col s8 truncate no-padding">
-                      {this.selectedData.name}
                     </span>
                     <button
                       id="select-data"
@@ -104,7 +91,6 @@ export class Panel1 implements ComponentInterface {
                       data-target="datainformation"
                       data-title="Dataset information"
                       title="testing tooltip"
-                      style={{ display: "none" }}
                     >
                       i
                     </button>

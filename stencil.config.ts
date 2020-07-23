@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'stencil-parllel-web-component',
+  globalStyle: 'src/global/global/global.css',
   taskQueue: 'async',
   outputTargets: [
     {

@@ -1,4 +1,5 @@
 // Ngan - May 4 2019
+import * as d3 from "d3";
 import "d3-selection-multi";
 export function viiolinplot() {
   let graphicopt = {
