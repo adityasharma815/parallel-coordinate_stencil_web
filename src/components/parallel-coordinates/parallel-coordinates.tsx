@@ -41,7 +41,7 @@ export class ParallelCoordinates implements ComponentInterface {
 
   componentDidLoad() {
     let fulldata = this;
-    let pathVal = getAssetPath(`/data/sampleData.csv`);
+    let pathVal = getAssetPath(this.dataUrl);
     console.log('PathjVale =', pathVal)
     d3.csv(pathVal).then(function (data) {
       data = data.slice(0, 66);

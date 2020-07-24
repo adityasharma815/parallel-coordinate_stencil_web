@@ -1,0 +1,74 @@
+:host {
+  display: block;
+}
+.icon-small {
+  font-size: 14px !important;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.4rem;
+  width: auto !important;
+  max-height: initial !important;
+  overflow-y: hidden !important;
+  background-color: #edeaea !important;
+}
+.modal-dialog {
+  width: calc(100vw - 500px) !important;
+  height: calc(100vh - 100px);
+}
+form {
+  padding: 15px;
+}
+.btn {
+  margin: 0 0 0 0.6rem !important;
+}
+.drop-box {
+  position: absolute;
+  width: 85%;
+  height: 250px;
+  border: 1px solid #ddd;
+  pointer-events: none;
+  text-align: center;
+}
+input {
+  position: relative;
+  width: 96%;
+  height: 250px;
+  opacity: 0;
+}
+
+.modal-body p {
+  margin-top: 0;
+}
+
+.change-loaded-dataset {
+  padding-top: 10px;
+}
+a {
+  cursor: pointer;
+  color: #5ae;
+}
+
+.change-loaded-dataset ul {
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.change-loaded-dataset li {
+  margin-bottom: 5px;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 5px 20px 5px 10px;
+}

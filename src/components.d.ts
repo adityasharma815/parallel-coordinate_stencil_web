@@ -6,6 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DataselctionModal {
+        "sampleData": any;
+        "selectedData": any;
+    }
     interface LayoutComponent {
         "dataUrl": string;
         /**
@@ -31,6 +35,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDataselctionModalElement extends Components.DataselctionModal, HTMLStencilElement {
+    }
+    var HTMLDataselctionModalElement: {
+        prototype: HTMLDataselctionModalElement;
+        new (): HTMLDataselctionModalElement;
+    };
     interface HTMLLayoutComponentElement extends Components.LayoutComponent, HTMLStencilElement {
     }
     var HTMLLayoutComponentElement: {
@@ -50,12 +60,18 @@ declare global {
         new (): HTMLParallelCoordinatesElement;
     };
     interface HTMLElementTagNameMap {
+        "dataselction-modal": HTMLDataselctionModalElement;
         "layout-component": HTMLLayoutComponentElement;
         "left-panel": HTMLLeftPanelElement;
         "parallel-coordinates": HTMLParallelCoordinatesElement;
     }
 }
 declare namespace LocalJSX {
+    interface DataselctionModal {
+        "onDataSelected"?: (event: CustomEvent<any>) => void;
+        "sampleData"?: any;
+        "selectedData"?: any;
+    }
     interface LayoutComponent {
         "dataUrl"?: string;
         /**
@@ -81,6 +97,7 @@ declare namespace LocalJSX {
         "singleData"?: string;
     }
     interface IntrinsicElements {
+        "dataselction-modal": DataselctionModal;
         "layout-component": LayoutComponent;
         "left-panel": LeftPanel;
         "parallel-coordinates": ParallelCoordinates;
@@ -90,6 +107,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dataselction-modal": LocalJSX.DataselctionModal & JSXBase.HTMLAttributes<HTMLDataselctionModalElement>;
             "layout-component": LocalJSX.LayoutComponent & JSXBase.HTMLAttributes<HTMLLayoutComponentElement>;
             "left-panel": LocalJSX.LeftPanel & JSXBase.HTMLAttributes<HTMLLeftPanelElement>;
             "parallel-coordinates": LocalJSX.ParallelCoordinates & JSXBase.HTMLAttributes<HTMLParallelCoordinatesElement>;

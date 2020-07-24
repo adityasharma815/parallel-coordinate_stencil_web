@@ -48,7 +48,6 @@ export class MyComponent {
 		</div>
 		<div class="main">
 			<div class='main-left-panel' id='main-left-panel'>
-        {this.selectedDataset}
         <left-panel selectedData={this.selectedDataset}></left-panel>
 			</div>
 			<div class="main-right-panel" id="main-right-panel" >
